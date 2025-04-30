@@ -55,7 +55,6 @@
   animation: pulse 2s infinite;
 }
 
-/* List of items */
 .items-list {
   list-style: none;
   padding: 0;
@@ -139,7 +138,6 @@
   border: 1px solid rgba(255, 200, 0, 0.3);
 }
 
-/* Alerts and messages */
 .connection-alert,
 .error-alert,
 .info-message {
@@ -193,7 +191,6 @@
   color: #4682ff;
 }
 
-/* Loading spinner */
 .loading-container {
   display: flex;
   flex-direction: column;
@@ -212,7 +209,6 @@
   margin-bottom: 1rem;
 }
 
-/* Animations */
 @keyframes pulse {
   0% {
     box-shadow: 0 0 5px rgba(0, 255, 170, 0.5);
@@ -242,7 +238,6 @@
   }
 }
 
-/* Responsive design */
 @media (max-width: 768px) {
   .listed-items-container {
     padding: 0 1rem;

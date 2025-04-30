@@ -255,7 +255,7 @@
   100% { transform: rotate(360deg); }
 }
 
-/* Loading State */
+
 .loading-container {
   display: flex;
   flex-direction: column;
@@ -271,7 +271,7 @@
   margin-bottom: 1.5rem;
 }
 
-.spinner-cube:before, 
+.spinner-cube:before,
 .spinner-cube:after {
   content: '';
   position: absolute;
@@ -305,7 +305,7 @@
   opacity: 0.7;
 }
 
-/* Alert Components */
+
 .alert {
   padding: 1rem;
   border-radius: var(--border-radius);
@@ -345,23 +345,23 @@
   color: var(--error-color);
 }
 
-/* Empty State */
+
 .rentals-grid .alert {
   grid-column: 1 / -1;
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
   .rentals-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .rentals-container {
     padding: 0 1rem;
   }
 }
 
-/* Animation for cards */
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -377,7 +377,7 @@
   animation: fadeIn 0.5s ease-out forwards;
 }
 
-/* Item status indicator */
+
 .rental-detail.status {
   padding-top: 0.75rem;
   margin-top: 0.5rem;

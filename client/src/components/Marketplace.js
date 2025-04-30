@@ -30,18 +30,18 @@ function Marketplace({ notify }) {
           }
 
           const fetchedItems = [];
-          // Get IDs of listed items first
-          const listedItemIds = await readContract.getListedItemIds(0, 100); // Fetch first 100 listed IDs
+          
+          const listedItemIds = await readContract.getListedItemIds(0, 100); 
 
-          // Fetch full details for each listed ID using getItem()
+          
           for (const idBN of listedItemIds) {
               const itemId = idBN.toNumber();
-              if (itemId === 0) continue; // Skip potential zero ID if returned
+              if (itemId === 0) continue; 
 
               try {
                   const item = await readContract.getItem(itemId);
 
-                  // We already know it's listed from getListedItemIds, but check exists
+                  
                   if (item.exists) {
                       console.log(`Marketplace: Fetched Item ${itemId} via getItem()`, item);
                       fetchedItems.push({
