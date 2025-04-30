@@ -6,6 +6,8 @@ This project implements a trustless, decentralized rental platform built on the 
 
 The platform leverages smart contracts to automate crucial aspects of the rental process, including holding deposits, calculating rental duration and fees, handling late penalties based on the deposit coverage, and distributing funds securely upon item return[cite: 1]. To maintain efficiency and keep blockchain transaction costs low, larger item details like images and full descriptions are stored off-chain using IPFS (InterPlanetary File System), with only a link (IPFS CID) stored on-chain[cite: 19, 26].
 
+Our Project Report: https://drive.google.com/file/d/1lCz9XpubpC3FhL2HYicU14b-kDrBx5ub/view?usp=sharing
+
 ## Features
 
 * **Owner Item Listing:** Owners can list items with a title, description, contact email, image (uploaded to IPFS), daily rental price (in ETH), and a security deposit (in ETH)[cite: 1].
