@@ -5,7 +5,7 @@ import Navigation from './components/Navigation';
 import Marketplace from './components/Marketplace';
 import ListItemForm from './components/ListItemForm';
 import MyRentals from './components/MyRentals';
-import MyListedItems from './components/MyListedItems'; // <-- RE-ADD Import
+import MyListedItems from './components/MyListedItems'; 
 import Notification from './components/Notification';
 import { Web3Context } from './contexts/Web3Context';
 import { useNotifications } from './hooks/useNotifications';
@@ -32,10 +32,8 @@ function App() {
           <Route path="/" element={<Marketplace notify={notify} />} />
           <Route path="/list-item" element={account ? <ListItemForm notify={notify} /> : <Navigate to="/" />} />
           <Route path="/my-rentals" element={account ? <MyRentals notify={notify} /> : <Navigate to="/" />} />
-          {/* --- RE-ADD Route for My Listed Items --- */}
           <Route path="/my-listed-items" element={account ? <MyListedItems notify={notify} /> : <Navigate to="/" />} />
-          {/* ------------------------------------ */}
-           <Route path="*" element={<Navigate to="/" />} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Container>
     </div>

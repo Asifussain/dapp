@@ -8,7 +8,7 @@ function MyRentals({ notify }) {
   const [rentedItems, setRentedItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const [processingReturn, setProcessingReturn] = useState(null); // Track which item ID is being returned
+  const [processingReturn, setProcessingReturn] = useState(null);
 
   const fetchMyRentedItems = useCallback(async () => {
     const readContract = contract || (provider && contract?.address && new ethers.Contract(contract.address, contract.interface, provider));
@@ -29,13 +29,11 @@ function MyRentals({ notify }) {
       }
 
       const myItems = [];
-      // Inefficient: Iterate through all items and filter by renter
-      // TODO: Add contract event indexing or dedicated functions for better performance
+
       for (let i = 1; i <= totalItemCount.toNumber(); i++) {
         try {
           const item = await readContract.items(i);
           if (item.exists && item.renter.toLowerCase() === account.toLowerCase()) {
-            // Calculate remaining time (approximate)
             const now = Math.floor(Date.now() / 1000);
             const rentedUntilTimestamp = item.rentedUntil.toNumber();
             const isOverdue = now > rentedUntilTimestamp;
@@ -62,15 +60,15 @@ function MyRentals({ notify }) {
     } finally {
       setLoading(false);
     }
-  }, [contract, account, provider, notify]); // Dependencies
+  }, [contract, account, provider, notify]);
 
   useEffect(() => {
-    if (account && contract) { // Fetch only if connected and contract is ready
+    if (account && contract) {
       fetchMyRentedItems();
     } else {
-      setRentedItems([]); // Clear items if disconnected
+      setRentedItems([]);
     }
-  }, [account, contract, fetchMyRentedItems]); // Rerun if account or contract changes
+  }, [account, contract, fetchMyRentedItems]);
 
   const handleReturn = async (itemId, itemTitle) => {
     if (!contract || !signer || !account) {
@@ -78,7 +76,7 @@ function MyRentals({ notify }) {
       return;
     }
 
-    setProcessingReturn(itemId); // Set loading state for this specific item
+    setProcessingReturn(itemId);
     notify(`Preparing return transaction for "${itemTitle}"...`, "info");
 
     try {
@@ -89,7 +87,7 @@ function MyRentals({ notify }) {
       await tx.wait();
 
       notify(`Successfully returned "${itemTitle}"!`, 'success');
-      fetchMyRentedItems(); // Refresh the list
+      fetchMyRentedItems();
 
     } catch(err) {
       console.error(`Return failed for item ${itemId}:`, err);
@@ -107,7 +105,7 @@ function MyRentals({ notify }) {
       }
       notify(errorMessage, 'danger');
     } finally {
-      setProcessingReturn(null); // Clear loading state for this item
+      setProcessingReturn(null);
     }
   };
 
@@ -118,7 +116,7 @@ function MyRentals({ notify }) {
 
   const formatTimestamp = (timestamp) => {
     if (!timestamp || timestamp === 0) return 'N/A';
-    return new Date(timestamp * 1000).toLocaleString(); // Convert seconds to ms
+    return new Date(timestamp * 1000).toLocaleString();
   }
 
   if (!account) {

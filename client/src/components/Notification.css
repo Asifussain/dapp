@@ -9,7 +9,6 @@
   --text-accent: #00ffaa;
   --accent-glow: 0 0 10px rgba(0, 255, 170, 0.5);
   
-  /* Notification type colors */
   --notify-info: #4682ff;
   --notify-success: #00ffaa;
   --notify-warning: #ffcc00;
@@ -36,7 +35,6 @@
   backdrop-filter: blur(10px);
 }
 
-/* Border top based on notification type */
 .notification-toast::before {
   content: '';
   position: absolute;
@@ -66,7 +64,6 @@
   box-shadow: 0 0 8px rgba(255, 70, 70, 0.6);
 }
 
-/* Header styling */
 .notification-header {
   display: flex;
   justify-content: space-between;
@@ -115,14 +112,12 @@
   opacity: 1;
 }
 
-/* Body styling */
 .notification-body {
   padding: 12px 15px;
   color: var(--text-light);
   font-size: 0.9rem;
 }
 
-/* Progress bar animation */
 .notification-progress {
   position: absolute;
   bottom: 0;
@@ -149,7 +144,6 @@
   background-color: var(--notify-danger);
 }
 
-/* Animations */
 @keyframes slideIn {
   from {
     transform: translateX(100%);
@@ -170,7 +164,6 @@
   }
 }
 
-/* Responsive design for mobile */
 @media (max-width: 480px) {
   .notification-container {
     top: 10px;

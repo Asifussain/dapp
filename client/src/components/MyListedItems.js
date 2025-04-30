@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext, useCallback } from 'react';
-import { ethers } from 'ethers'; // Keep ethers if needed elsewhere
+import { ethers } from 'ethers'; 
 import { Web3Context } from '../contexts/Web3Context';
 import './MyListedItems.css';
 
@@ -27,10 +27,10 @@ function MyListedItems({ notify }) {
         return;
       }
       const myItems = [];
-      // Iterate backwards for potentially slightly better perceived loading of recent items
+      
       for (let i = totalItemCount.toNumber(); i >= 1; i--) {
         try {
-          // Fetch only necessary fields for this view
+          
           const item = await readContract.getItem(i);
           if (item.exists && item.owner.toLowerCase() === account.toLowerCase()) {
             myItems.push({
@@ -59,7 +59,7 @@ function MyListedItems({ notify }) {
     else { setOwnedItems([]); }
   }, [account, contract, fetchMyListedItems]);
 
-  // --- RENDER LOGIC ---
+  
   if (!account) { 
     return (
       <div className="listed-items-container">
