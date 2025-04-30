@@ -52,8 +52,8 @@ Before you begin, ensure you have the following installed:
 
 1.  **Clone Repository:**
     ```bash
-    git clone <your-repository-url>
-    cd <repository-folder-name> # e.g., cd dapp
+    git clone https://github.com/Asifussain/Decentralized-Book-Rental-Platform
+    cd dapp
     ```
 
 2.  **Install Root Dependencies:** Install Truffle, OpenZeppelin, etc.
@@ -65,9 +65,6 @@ Before you begin, ensure you have the following installed:
     ```bash
     cd client
     npm install
-    # Ensure react-router-bootstrap is installed if Navigation links were updated
-    npm install react-router-bootstrap
-    cd ..
     ```
 
 4.  **Configure Environment Variables:**
@@ -99,7 +96,7 @@ Before you begin, ensure you have the following installed:
 8.  **Update Frontend Configuration:**
     * **Copy Artifact:** Copy the generated ABI file from the backend build output to the frontend's artifact directory:
         ```bash
-        # Run from the project root directory (e.g., 'dapp')
+        # Run from the project root directory
         cp build/contracts/RentalPlatform.json client/src/artifacts/
         ```
         (Use `copy` instead of `cp` on Windows Command Prompt if needed).
@@ -129,7 +126,7 @@ Before you begin, ensure you have the following installed:
 To verify the smart contract logic, run the Truffle tests:
 
 ```bash
-# Run from the project root directory (e.g., 'dapp')
+# Run from the project root directory
 npm run test
 # or
 truffle test
